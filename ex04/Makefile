@@ -1,7 +1,7 @@
 NAME = replace
 CC = g++
 CFLAGS = -Wall -Wextra -Werror
-SRCS = main.cpp
+SRCS = MyCopy.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
