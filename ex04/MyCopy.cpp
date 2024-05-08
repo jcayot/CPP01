@@ -4,26 +4,20 @@
 
 #include "MyCopy.hpp"
 
-MyCopy::MyCopy(std::string &filename, std::string &s1, std::string &s2) {
-	this -> filename = filename;
-	this -> s1 = s1;
-	this -> s2 = s2;
-}
-
-int MyCopy::run() {
+int	MyCopy::RunMyCopy(std::string &filename, std::string &s1, std::string &s2) {
 	std::ifstream	inFile;
 	std::ofstream	outFile;
 	int 			result;
 
-	if (!openFiles(inFile, outFile))
+	if (!openFiles(filename, inFile, outFile))
 		return (1);
-	result = copyReplace(inFile, outFile);
+	result = copyReplace(s1, s2, inFile, outFile);
 	inFile.close();
 	outFile.close();
-	return (!result);
+	return (result);
 }
 
-int	MyCopy::openFiles(std::ifstream &inFile, std::ofstream &outFile) {
+int	MyCopy::openFiles(std::string &filename, std::ifstream &inFile, std::ofstream &outFile) {
 	inFile.open(filename, std::ios::in);
 	if (!inFile.is_open())
 	{
@@ -40,7 +34,7 @@ int	MyCopy::openFiles(std::ifstream &inFile, std::ofstream &outFile) {
 	return (1);
 }
 
-int MyCopy::copyReplace(std::ifstream &inFile, std::ofstream &outFile) {
+int	MyCopy::copyReplace(std::string &s1, std::string &s2, std::ifstream &inFile, std::ofstream &outFile) {
 	char	lastRead;
 
 	while (inFile >> std::noskipws >> lastRead) {
@@ -48,11 +42,12 @@ int MyCopy::copyReplace(std::ifstream &inFile, std::ofstream &outFile) {
 		unsigned long	i = 0;
 
 		readBuffer += lastRead;
-		while (i < s1.length() && lastRead == s1[i] && inFile >> std::noskipws >> lastRead) {
+		while (i < s1.length() - 1 && lastRead == s1[i] && inFile >> std::noskipws >> lastRead) {
 			readBuffer += lastRead;
+			std::cout << lastRead << std::endl;
 			i++;
 		}
-		if (i == s1.length())
+		if (i == s1.length() - 1 && lastRead == s1[i])
 			outFile << s2;
 		else
 			outFile << readBuffer;

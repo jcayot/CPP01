@@ -12,17 +12,11 @@
 
 class MyCopy {
 	private:
-		std::string	filename;
-		std::string	s1;
-		std::string	s2;
+		static int openFiles(std::string &filename, std::ifstream &inFile, std::ofstream &outFile);
+		static int copyReplace(std::string &s1, std::string &s2, std::ifstream &inFile, std::ofstream &outFile);
 
-		int	openFiles(std::ifstream &inFile, std::ofstream &outFile);
-		int copyReplace(std::ifstream &inFile, std::ofstream &outFile);
-
-public:
-		MyCopy(std::string &filename, std::string &s1, std::string &s2);
-
-		int run();
+	public:
+		static int	RunMyCopy(std::string &filename, std::string &s1, std::string &s2);
 };
 
 
