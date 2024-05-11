@@ -14,16 +14,14 @@ int main(int n, char *args[]) {
 				break;
 			case 0:
 				Harl().complain("DEBUG");
-				[[fallthrough]];
 			case 1:
 				Harl().complain("INFO");
-				[[fallthrough]];
 			case 2:
 				Harl().complain("WARNING");
-				[[fallthrough]];
 			case 3:
 				Harl().complain("ERROR");
 		}
-	}
-	return (0);
+		return (0);
+	} else
+		return (1);
 }
