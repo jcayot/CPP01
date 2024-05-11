@@ -1,5 +1,5 @@
 NAME = fight
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror
 SRCS = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
