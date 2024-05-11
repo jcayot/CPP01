@@ -44,7 +44,6 @@ int	MyCopy::copyReplace(std::string &s1, std::string &s2, std::ifstream &inFile,
 		readBuffer += lastRead;
 		while (i < s1.length() - 1 && lastRead == s1[i] && inFile >> std::noskipws >> lastRead) {
 			readBuffer += lastRead;
-			std::cout << lastRead << std::endl;
 			i++;
 		}
 		if (i == s1.length() - 1 && lastRead == s1[i])
