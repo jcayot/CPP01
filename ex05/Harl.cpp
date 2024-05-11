@@ -12,7 +12,6 @@ Harl::~Harl() {
 
 }
 
-
 void Harl::complain(std::string level) {
 	void (Harl::*levelFunctions[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
