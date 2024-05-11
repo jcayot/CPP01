@@ -8,10 +8,6 @@ Zombie::Zombie(std::string name) {
 	this -> name = name;
 }
 
-Zombie::Zombie() {
-
-}
-
 Zombie::~Zombie() {
 	std::cout << name << ": NOOOOOOOOOO my only weakness the destructor!\n";
 }
